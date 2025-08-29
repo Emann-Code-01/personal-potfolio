@@ -4,7 +4,6 @@
         <router-view />
         <Footer />
     </div>
-    WASSUP
 </template>
 
 <script setup>
