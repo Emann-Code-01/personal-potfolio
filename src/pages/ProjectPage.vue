@@ -34,9 +34,9 @@
                             </div>
                         </div>
                         <div>
-                            <h3 class="font-bold text-white tracking-[0.48px] mb-2">NavBar Design</h3>
-                            <p class="text-sm text-gray-400 tracking-[0.42px] line-clamp-2">This is a navbar design with
-                                a dark&light mode</p>
+                            <h3 class="font-bold text-white tracking-[0.48px] mb-2">{{ project.title }}</h3>
+                            <p class="text-sm text-gray-400 tracking-[0.42px] line-clamp-2">{{ project.description }}
+                            </p>
                         </div>
                         <div v-if="activeIndex === index"
                             class="absolute w-3 h-3 bg-red-500 rounded-full top-2 right-2 animate-pulse">
@@ -61,7 +61,7 @@
                                 <h3 class="text-xl font-[Montserrat-Bold] text-white tracking-[0.48px]">
                                     {{ projects[activeIndex]?.title || 'Project Name' }}
                                 </h3>
-                                <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">Project Description</p>
+                                <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">{{ projects[activeIndex]?.description }}</p>
                             </div>
                             <div class="mt-4">
                                 <a :href="projects[activeIndex]?.link || ''" target="_blank" rel="noopener noreferrer"
@@ -107,12 +107,14 @@
 import { ref } from 'vue';
 
 const projects = [
-    { id: 1, title: "NavBar Design", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "https://github.com/Emann-Code-01/nav-bar-design.git" },
-    { id: 2, title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href, link: "https://emanncode.vercel.app" },
-    { id: 3, title: "Image Gallery", url: new URL("@/assets/image-gallery.png", import.meta.url).href, link: "https://github.com/Emann-Code-01/Image-Gallery.git" },
-    // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "" },
-    // { id: 5, title: "Project 5", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "" },
-    // { id: 6, title: "Project 6", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "" },
+    {
+        id: 1, title: "NavBar Design", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "This is a navbar design with a dark & light mode", link: "https://github.com/Emann-Code-01/nav-bar-design.git"
+    },
+    { id: 2, title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href, description: "Ifeoluwa Olajubaje potfolio", link: "https://emanncode.vercel.app" },
+    { id: 3, title: "Image Gallery", url: new URL("@/assets/image-gallery.png", import.meta.url).href, description: "A slick image gallery", link: "https://github.com/Emann-Code-01/Image-Gallery.git" },
+    // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
+    // { id: 5, title: "Project 5", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
+    // { id: 6, title: "Project 6", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
 ]
 
 const activeIndex = ref(null);
