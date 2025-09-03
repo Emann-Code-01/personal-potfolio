@@ -108,7 +108,7 @@ import { ref } from 'vue';
 
 const projects = [
     { id: 1, title: "NavBar Design", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "https://github.com/Emann-Code-01/nav-bar-design.git" },
-    { id: 2, title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href, link: "https://emanncode.vercel.app/projects" },
+    { id: 2, title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href, link: "https://emanncode.vercel.app" },
     { id: 3, title: "Image Gallery", url: new URL("@/assets/image-gallery.png", import.meta.url).href, link: "https://github.com/Emann-Code-01/Image-Gallery.git" },
     // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "" },
     // { id: 5, title: "Project 5", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, link: "" },
