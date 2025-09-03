@@ -64,7 +64,7 @@
                                 <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">Project Description</p>
                             </div>
                             <div class="mt-4">
-                                <a :href="projects[activeIndex]?.url || ''" target="_blank" rel="noopener noreferrer"
+                                <a :href="projects[activeIndex]?.link || ''" target="_blank" rel="noopener noreferrer"
                                     class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 bg-red-600 rounded-lg hover:bg-red-700">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
