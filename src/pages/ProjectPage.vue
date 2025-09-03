@@ -80,25 +80,6 @@
                                 :title="projects[activeIndex]?.title || 'Project Name'"
                                 sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>
                         </div>
-                        <div class="mt-4 p-4 bg-white bg-opacity-[5%] rounded-lg border border-gray-700">
-                            <div class="flex items-start gap-3">
-                                <div
-                                    class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-[Montserrat-Medium] tracking-[0.42px] mb-1">Interactive
-                                        Demo Instructions</h4>
-                                    <p class="text-sm text-gray-400 tracking-[0.42px]">You can now interact with Medbot
-                                        AI directly in this window. Use the controls above to open the full site in a
-                                        new tab or close this demo.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div v-else class=" py-12 text-center animate-fade-up animate-duration-[1500ms] animate-delay-[600ms]
                                             animate-ease-out">
