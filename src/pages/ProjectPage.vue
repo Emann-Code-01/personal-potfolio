@@ -42,10 +42,9 @@
                             class="absolute w-3 h-3 bg-red-500 rounded-full top-2 right-2 animate-pulse">
                         </div>
                     </div>
-                    <!-- ...repeat for each project... -->
                 </div>
                 <div>
-                    <div v-if="activeIndex !== null"
+                    <div v-if="activeIndex !== null" ref="previewRef"
                         class="relative animate-fade-up animate-duration-[1000ms] animate-ease-out">
                         <div
                             class="relative mb-4 p-4 bg-white bg-opacity-[8%] rounded-lg border border-red-500 border-opacity-30">
@@ -61,7 +60,22 @@
                                 <h3 class="text-xl font-[Montserrat-Bold] text-white tracking-[0.48px]">
                                     {{ projects[activeIndex]?.title || 'Project Name' }}
                                 </h3>
-                                <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">{{ projects[activeIndex]?.description }}</p>
+                                <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">{{
+                                    projects[activeIndex]?.description }}</p>
+                            </div>
+                            <!-- Loader -->
+                            <div v-if="isLoading" class="flex flex-col items-center justify-center py-12 text-center">
+                                <svg class="w-8 h-8 animate-spin text-red-500 mb-3" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                        stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor"
+                                        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z">
+                                    </path>
+                                </svg>
+                                <p class="text-gray-300 text-sm">
+                                    Loading <span class="font-semibold text-white">{{ projects[activeIndex]?.title
+                                    }}</span>...
+                                </p>
                             </div>
                             <div class="mt-4">
                                 <a :href="projects[activeIndex]?.link || ''" target="_blank" rel="noopener noreferrer"
@@ -74,11 +88,12 @@
                                 </a>
                             </div>
                         </div>
-                        <div
+                        <div v-show="!isLoading"
                             class="relative overflow-hidden bg-white border border-red-500 rounded-lg border-opacity-30">
                             <iframe :src="projects[activeIndex]?.link || ''" class="w-full h-[600px] border-0"
                                 :title="projects[activeIndex]?.title || 'Project Name'"
-                                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+                                @load="iframeLoaded"></iframe>
                         </div>
                     </div>
                     <div v-else class=" py-12 text-center animate-fade-up animate-duration-[1500ms] animate-delay-[600ms]
@@ -90,8 +105,6 @@
                                 </path>
                             </svg>
                         </div>
-                        <!-- <h3 class="text-white font-medium tracking-[0.48px] mb-2">Select a project
-                            demo</h3> -->
                         <p class="text-gray-400 tracking-[0.42px] max-w-md mx-auto">Choose any
                             project from the grid
                             above
@@ -104,28 +117,77 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 
 const projects = [
     {
-        id: 1, title: "NavBar Design", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "This is a navbar design with a dark & light mode", link: "https://github.com/Emann-Code-01/nav-bar-design.git"
+        id: 1, title: "NavBar Design",
+        url: new URL("@/assets/NavBar Design.png", import.meta.url).href,
+        description: "This is a navbar design with a dark & light mode",
+        link: "https://github.com/Emann-Code-01/nav-bar-design.git"
     },
-    { id: 2, title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href, description: "Ifeoluwa Olajubaje potfolio", link: "https://emanncode.vercel.app" },
-    { id: 3, title: "Image Gallery", url: new URL("@/assets/image-gallery.png", import.meta.url).href, description: "A slick image gallery", link: "https://github.com/Emann-Code-01/Image-Gallery.git" },
+    {
+        id: 2,
+        title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href,
+        description: "Ifeoluwa Olajubaje potfolio",
+        link: "https://emanncode.vercel.app"
+    },
+    {
+        id: 3,
+        title: "Image Gallery",
+        url: new URL("@/assets/image-gallery.png", import.meta.url).href,
+        description: "A slick image gallery",
+        link: "https://github.com/Emann-Code-01/Image-Gallery.git"
+    },
+    {
+        id: 1, title: "NavBar Design",
+        url: new URL("@/assets/NavBar Design.png", import.meta.url).href,
+        description: "This is a navbar design with a dark & light mode",
+        link: "https://github.com/Emann-Code-01/nav-bar-design.git"
+    },
+    {
+        id: 2,
+        title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href,
+        description: "Ifeoluwa Olajubaje potfolio",
+        link: "https://emanncode.vercel.app"
+    },
+    {
+        id: 3,
+        title: "Image Gallery",
+        url: new URL("@/assets/image-gallery.png", import.meta.url).href,
+        description: "A slick image gallery",
+        link: "https://github.com/Emann-Code-01/Image-Gallery.git"
+    },
     // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
     // { id: 5, title: "Project 5", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
     // { id: 6, title: "Project 6", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
 ]
 
 const activeIndex = ref(null);
+const previewRef = ref(null);
+const isLoading = ref(false);
 
 function toggleCircle(index) {
     activeIndex.value = index;
-};
+    isLoading.value = true;
+    nextTick(() => {
+        if (previewRef.value) {
+            previewRef.value.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+}
 
 function cancelCircle() {
     activeIndex.value = null;
-};
+    isLoading.value = false;
+}
+
+function iframeLoaded() {
+    isLoading.value = false; // stop loading when iframe is ready
+}
 </script>
 
 <style scoped></style>
