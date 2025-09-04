@@ -3,7 +3,7 @@
         <h2 class="text-2xl font-bold tracking-[0.72px] mb-4 font-[Montserrat-Bold]">My Services</h2>
         <p class="text-white opacity-30 text-sm tracking-[0.42px] mb-12 font-[Montserrat-SemiBold]">Services I offer to
             my clients/employers</p>
-        <div class="grid grid-flow-row md:grid-cols-2 xl:grid-cols-3 md:w-11/12 gap-[55px]">
+        <div class="grid grid-flow-row md:grid-cols-2 mx-auto xl:grid-cols-3 md:w-11/12 gap-[55px]">
             <div
                 class="text-center py-[50px] px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out">
                 <h4 class="mb-4 font-[Montserrat-Bold]">Frontend Development</h4>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div
-                class="text-center py-[50px] px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out">
+                class="text-center py-[50px] px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out md:col-span-2 md:max-w-md md:mx-auto xl:col-span-1 xl:max-w-none xl:mx-0">
                 <h4 class="mb-4 font-[Montserrat-Bold]">Web Performance</h4>
                 <p class="text-white text-opacity-40 text-sm mb-[26px] font-[Montserrat-SemiBold]">Tools used to achieve
                     this</p>
@@ -56,6 +56,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 </template>
