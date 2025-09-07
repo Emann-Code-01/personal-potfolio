@@ -74,7 +74,7 @@
                                 </svg>
                                 <p class="text-gray-300 text-sm">
                                     Loading <span class="font-semibold text-white">{{ projects[activeIndex]?.title
-                                    }}</span>...
+                                        }}</span>...
                                 </p>
                             </div>
                             <div class="mt-4">

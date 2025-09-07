@@ -4,7 +4,7 @@
         <footer class="flex justify-between items-center max-w-7xl mx-auto h-[92px]">
             <div class="text-xs sm:text-sm max-w-1/1 flex items-center tracking-[0.42px] font-[Montserrat-SemiBold]">
                 <p><span class="mr-[5px] mt-2 text-sm text-center">©</span>2025 Olajubaje Ifeoluwa E. <span
-                        class="text-accent pl-4 sm:pl-0">EmannCode</span></p>
+                        class="text-accent">EmannCode</span></p>
             </div>
             <ul class="flex gap-4">
                 <a href="https://www.linkedin.com/in/emann-b66a0b343" target="_blank"
