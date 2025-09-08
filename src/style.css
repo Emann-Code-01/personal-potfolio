@@ -1531,9 +1531,9 @@ video {
 * {
   @apply transition-colors duration-[1500ms] ease-in-out;
 }
-
+/* 
 :root {
-  --foreground-rgb: 245, 245, 245;
+  --foreground-rgb: 0, 0, 0;
   --background: #fafafa;
 }
 
@@ -1549,7 +1549,7 @@ video {
     transition: background 0.3s, color 0.3s;
   }
   :root {
-    --foreground-rgb: 245, 245, 245;
+    --foreground-rgb: 0, 0, 0;
     --background: #fafafa;
     transition: background 0.3s, color 0.3s;
   }
@@ -1566,6 +1566,27 @@ html.dark body {
   font-family: Montserrat-Regular;
   color: rgb(var(--foreground-rgb-dark));
   background: var(--background-dark);
+  overflow-x: hidden;
+} */
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background: #161616;
+  transition: background 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb:  255, 255, 255;
+    --background: #161616;
+    transition: background 0.3s, color 0.3s;
+  }
+}
+
+body {
+  font-family: Montserrat-Regular;
+  color: rgb(var(--foreground-rgb));
+  background: var(--background);
   overflow-x: hidden;
 }
 
