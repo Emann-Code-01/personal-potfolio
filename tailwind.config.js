@@ -1,11 +1,16 @@
 export default {
-  darkMode: "class", // 👈 This is where you enable class-based dark mode
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+    darkMode: "class",
+    content: [
+        "./index.html",
+        "./src/**/*.{vue,js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                background: "var(--background)",
+                foreground: "rgb(var(--foreground-rgb))",
+            },
+        },
+    },
+    plugins: [],
 }

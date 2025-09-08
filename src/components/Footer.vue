@@ -1,5 +1,5 @@
 <template>
-    <section class="px-5 pt-20 bottom-0 bg-primary sm:px-10">
+    <section class="px-5 pt-20 bottom-0 sm:px-10">
         <hr class="mx-auto max-w-7xl opacity-20">
         <footer class="flex justify-between items-center max-w-7xl mx-auto h-[92px]">
             <div class="text-xs sm:text-sm max-w-1/1 flex items-center tracking-[0.42px] font-[Montserrat-SemiBold]">
@@ -20,6 +20,9 @@
     </section>
 </template>
 
-<script setup></script>
+<script setup>
+import DarkMode from './DarkMode.vue';
+
+</script>
 
 <style scoped></style>

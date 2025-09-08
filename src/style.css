@@ -9,6 +9,7 @@
 :before {
   box-sizing: border-box;
   border: 0 solid #e5e7eb;
+  transition: all 0.3s ease-in-out;
 }
 
 html {
@@ -1527,15 +1528,30 @@ video {
   src: url("/font/Product Sans Bold.ttf") format("truetype");
 }
 
+* {
+  @apply transition-colors duration-[1500ms] ease-in-out;
+}
+
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background: #161616;
+  --foreground-rgb: 245, 245, 245;
+  --background: #fafafa;
+}
+
+:root.dark {
+  --foreground-rgb-dark: 255, 255, 255;
+  --background-dark: #161616;
 }
 
 @media (prefers-color-scheme: dark) {
+  :root.dark {
+    --foreground-rgb-dark: 255, 255, 255;
+    --background-dark: #161616;
+    transition: background 0.3s, color 0.3s;
+  }
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background: #161616;
+    --foreground-rgb: 245, 245, 245;
+    --background: #fafafa;
+    transition: background 0.3s, color 0.3s;
   }
 }
 
@@ -1543,6 +1559,13 @@ body {
   font-family: Montserrat-Regular;
   color: rgb(var(--foreground-rgb));
   background: var(--background);
+  overflow-x: hidden;
+}
+
+html.dark body {
+  font-family: Montserrat-Regular;
+  color: rgb(var(--foreground-rgb-dark));
+  background: var(--background-dark);
   overflow-x: hidden;
 }
 
