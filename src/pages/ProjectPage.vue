@@ -64,7 +64,7 @@
                                     projects[activeIndex]?.description }}</p>
                             </div>
                             <!-- Loader -->
-                            <div v-if="isLoading" class="flex flex-col items-center justify-center py-12 text-center">
+                            <div v-if="isLoading && !isGithubLink" class="flex flex-col items-center justify-center py-12 text-center">
                                 <svg class="w-8 h-8 animate-spin text-red-500 mb-3" fill="none" viewBox="0 0 24 24">
                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
                                         stroke-width="4"></circle>
@@ -74,7 +74,7 @@
                                 </svg>
                                 <p class="text-gray-300 text-sm">
                                     Loading <span class="font-semibold text-white">{{ projects[activeIndex]?.title
-                                        }}</span>...
+                                    }}</span>...
                                 </p>
                             </div>
                             <div class="mt-4">
@@ -84,11 +84,11 @@
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
                                         </path>
                                     </svg>
-                                    Open Full Site
+                                    {{ isGithubLink ? "Open GitHub" : "Open Full Site" }}
                                 </a>
                             </div>
                         </div>
-                        <div v-show="!isLoading"
+                        <div v-show="!isLoading" v-if="!isGithubLink"
                             class="relative overflow-hidden bg-white border border-red-500 rounded-lg border-opacity-30">
                             <iframe :src="projects[activeIndex]?.link || ''" class="w-full h-[600px] border-0"
                                 :title="projects[activeIndex]?.title || 'Project Name'"
@@ -117,7 +117,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, computed } from 'vue';
 
 const projects = [
     {
@@ -169,6 +169,11 @@ function cancelCircle() {
 function iframeLoaded() {
     isLoading.value = false; // stop loading when iframe is ready
 }
+
+const isGithubLink = computed(() => {
+    if (activeIndex.value === null) return false
+    return projects[activeIndex.value]?.link?.includes(".git")
+})
 </script>
 
 <style scoped></style>
