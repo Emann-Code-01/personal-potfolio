@@ -64,7 +64,8 @@
                                     projects[activeIndex]?.description }}</p>
                             </div>
                             <!-- Loader -->
-                            <div v-if="isLoading && !isGithubLink" class="flex flex-col items-center justify-center py-12 text-center">
+                            <div v-if="isLoading && !isGithubLink"
+                                class="flex flex-col items-center justify-center py-12 text-center">
                                 <svg class="w-8 h-8 animate-spin text-red-500 mb-3" fill="none" viewBox="0 0 24 24">
                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
                                         stroke-width="4"></circle>
@@ -74,19 +75,36 @@
                                 </svg>
                                 <p class="text-gray-300 text-sm">
                                     Loading <span class="font-semibold text-white">{{ projects[activeIndex]?.title
-                                    }}</span>...
+                                        }}</span>...
                                 </p>
                             </div>
                             <div class="mt-4">
                                 <a :href="projects[activeIndex]?.link || ''" target="_blank" rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 bg-red-600 rounded-lg hover:bg-red-700">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    class="relative inline-flex items-center gap-1 group px-4 py-2 text-sm font-medium text-white transition-colors duration-200 bg-red-600 rounded-lg hover:bg-red-700">
+                                    <svg class="overflow-hidden animate-pulse max-w-0 opacity-0 transition-all duration-300 group-hover:max-w-xs group-hover:opacity-100 w-4 h-4"
+                                        fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
                                         </path>
                                     </svg>
                                     {{ isGithubLink ? "Open GitHub" : "Open Full Site" }}
                                 </a>
                             </div>
+                            <div v-if="githubLink" v-show="!isLoading" class="absolute bottom-4 right-4 inline-block">
+                                <div
+                                    class="relative px-2 font-[Montserrat-SemiBold] text-gray-400 border border-white border-opacity-30 rounded-full transition-all duration-300 animate-fade-up hover:text-white">
+
+                                    <a :href="projects[activeIndex]?.githubLink || ''" target="_blank"
+                                        rel="noopener noreferrer" class="inline-flex items-center gap-1 group">
+                                        <span>GitHub</span>
+                                        <span
+                                            class="overflow-hidden max-w-0 opacity-0 transition-all duration-300 group-hover:max-w-xs group-hover:opacity-100">
+                                            Link
+                                        </span>
+                                    </a>
+
+                                </div>
+                            </div>
+
                         </div>
                         <div v-show="!isLoading" v-if="!isGithubLink"
                             class="relative overflow-hidden bg-white border border-red-500 rounded-lg border-opacity-30">
@@ -130,7 +148,8 @@ const projects = [
         id: 2,
         title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href,
         description: "Ifeoluwa Olajubaje potfolio",
-        link: "https://emanncode.vercel.app"
+        link: "https://emanncode.vercel.app",
+        githubLink: "https://github.com/Emann-Code-01/personal-potfolio.git"
     },
     {
         id: 3,
@@ -173,6 +192,11 @@ function iframeLoaded() {
 const isGithubLink = computed(() => {
     if (activeIndex.value === null) return false
     return projects[activeIndex.value]?.link?.includes(".git")
+})
+
+const githubLink = computed(() => {
+    if (activeIndex.value === null) return true
+    return projects[activeIndex.value]?.githubLink?.includes(".git")
 })
 </script>
 
