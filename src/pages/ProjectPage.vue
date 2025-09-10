@@ -35,7 +35,14 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-white tracking-[0.48px] mb-2">{{ project.title }}</h3>
-                            <p class="text-sm text-gray-400 tracking-[0.42px] line-clamp-2">{{ project.description }}
+                            <p v-if="!expanded" class="text-sm text-gray-400 tracking-[0.42px] line-clamp-2">
+                                <template v-if="index === 0">
+                                    {{ truncateText(project.description, 10) }}
+                                    <span v-if="project.description.split(' ').length > 10">...</span>
+                                </template>
+                                <template v-else>
+                                    {{ project.description }}
+                                </template>
                             </p>
                         </div>
                         <div v-if="activeIndex === index"
@@ -75,7 +82,7 @@
                                 </svg>
                                 <p class="text-gray-300 text-sm">
                                     Loading <span class="font-semibold text-white">{{ projects[activeIndex]?.title
-                                        }}</span>...
+                                    }}</span>...
                                 </p>
                             </div>
                             <div class="mt-4">
@@ -139,23 +146,23 @@ import { ref, nextTick, computed } from 'vue';
 
 const projects = [
     {
-        id: 1, title: "NavBar Design",
+        id: 1, title: "Light & Dark Mode Navbar",
         url: new URL("@/assets/NavBar Design.png", import.meta.url).href,
-        description: "This is a navbar design with a dark & light mode",
+        description: "Navigation bar with light and dark mode support, allowing users to switch themes seamlessly for a better browsing experience.",
         link: "https://github.com/Emann-Code-01/nav-bar-design.git"
     },
     {
         id: 2,
         title: "Portfolio", url: new URL("@/assets/potfolio.png", import.meta.url).href,
-        description: "Ifeoluwa Olajubaje potfolio",
+        description: "This is my personal portfolio website where I showcase my journey as a frontend developer. It highlights my featured projects, including interactive UI components like a responsive navbar with light and dark mode, and an advanced image gallery with filters and dual viewing modes. The site is fully responsive, designed to work across devices, and serves as both a professional showcase of my skills and a personal space to share my growth in web development.",
         link: "https://emanncode.vercel.app",
         githubLink: "https://github.com/Emann-Code-01/personal-potfolio.git"
     },
     {
         id: 3,
-        title: "Image Gallery",
+        title: "Ultimate Image Gallery",
         url: new URL("@/assets/image-gallery.png", import.meta.url).href,
-        description: "A slick image gallery",
+        description: "An advanced image gallery with search, filters, and dual viewing modes (grid and slideshow) for a smooth and interactive browsing experience.",
         link: "https://github.com/Emann-Code-01/Image-Gallery.git"
     },
     // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
@@ -166,6 +173,7 @@ const projects = [
 const activeIndex = ref(null);
 const previewRef = ref(null);
 const isLoading = ref(false);
+const expanded = ref(false);
 
 function toggleCircle(index) {
     activeIndex.value = index;
@@ -198,6 +206,11 @@ const githubLink = computed(() => {
     if (activeIndex.value === null) return true
     return projects[activeIndex.value]?.githubLink?.includes(".git")
 })
+
+function truncateText(text, limit = 10) {
+    const words = text.split(" ");
+    return words.length > limit ? words.slice(0, limit).join(" ") : text;
+}
 </script>
 
 <style scoped></style>

@@ -6,11 +6,8 @@ export default {
     ],
     theme: {
         extend: {
-            colors: {
-                background: "var(--background)",
-                foreground: "rgb(var(--foreground-rgb))",
-            },
+
         },
+        plugins: [],
     },
-    plugins: [],
 }

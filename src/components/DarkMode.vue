@@ -4,7 +4,8 @@
             <i class="pi pi-moon text-xl rounded text-white  animate-fade-up transition-all duration-300 ease-in-out"></i>
         </span>
         <span v-else>
-            <i class="pi pi-sun text-xl rounded text-yellow-400  animate-fade-up transition-all duration-300 ease-in-out"></i>
+            <i
+                class="pi pi-sun text-xl rounded text-yellow-400  animate-fade-up transition-all duration-300 ease-in-out"></i>
         </span>
     </button>
 </template>
