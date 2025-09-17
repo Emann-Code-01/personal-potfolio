@@ -35,7 +35,8 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="https://drive.google.com/file/d/1aEeZaPf1JbUfbo-lbUjIPEF_topk04qO/view" target="_blank"
+                    <a href="https://drive.google.com/file/d/1h0qAOARD8hhuSgOlSvzNtCaFUVlJnKiM/view?usp=drive_link"
+                        target="_blank"
                         class="px-6 py-[17px] flex border border-accent rounded-lg place-items-center font-semibold hover:bg-accent transition-all ease-in w-max">
                         <i class="pi pi-book mr-3" alt="loader" loading="lazy" width="20" height="20" decoding="async"
                             data-nimg="1"></i>View Resume
