@@ -165,9 +165,14 @@ const projects = [
         description: "An advanced image gallery with search, filters, and dual viewing modes (grid and slideshow) for a smooth and interactive browsing experience.",
         link: "https://github.com/Emann-Code-01/Image-Gallery.git"
     },
-    // { id: 4, title: "Project 4", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
-    // { id: 5, title: "Project 5", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
-    // { id: 6, title: "Project 6", url: new URL("@/assets/NavBar Design.png", import.meta.url).href, description: "", link: "" },
+    {
+        id: 4,
+        title: "FilmRitz – Netflix-Inspired Movie Explorer",
+        url: new URL("@/assets/FilmRitz.png", import.meta.url).href,
+        description: "FilmRitz is a modern, Netflix-inspired movie discovery platform built with Vue.js and TailwindCSS. It integrates The Movie Database (TMDB) API to fetch real-time trending films, offering users a sleek interface to explore, search, and preview movies. Key features include a responsive Netflix-style carousel using Swiper.js, smooth animations, and dynamic UI elements that replicate the look and feel of a streaming service.",
+        link: "https://github.com/Emann-Code-01/movie-explorer.git",
+        githubLink: "https://github.com/Emann-Code-01/movie-explorer.git"
+    }
 ]
 
 const activeIndex = ref(null);
