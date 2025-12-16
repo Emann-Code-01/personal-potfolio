@@ -1,6 +1,6 @@
 <template>
   <section
-    class="max-w-7xl mx-auto pt-14 pb-20 flex flex-col items-center px-5 sm:px-10"
+    class="max-w-7xl mx-auto pt-14 pb-20 flex flex-col items-center px-5 sm:px-10 justify-center"
   >
     <h2
       class="text-2xl font-bold tracking-[0.72px] mb-4 font-[Montserrat-Bold]"
@@ -13,7 +13,7 @@
       Services I offer to my clients/employers
     </p>
     <div
-      class="grid grid-flow-row md:grid-cols-2 mx-auto xl:grid-cols-3 gap-[55px] place-items-center"
+      class="grid grid-flow-row md:grid-cols-2 mx-auto xl:grid-cols-3 xl:grid-rows-1 gap-[55px]"
     >
       <div
         class="text-center py-[50px] px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out"
@@ -130,7 +130,7 @@
         </div>
       </div>
       <div
-        class="text-center py-[50px] px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out"
+        class="text-center py-[50px] xl:col-2 px-[65.5px] bg-white bg-opacity-[4%] border border-transparent duration-300 hover:border-[#FFFFFF1A] rounded-[6px] hover:bg-primary hover:bg-opacity-40 transition-all ease-out"
       >
         <h4 class="mb-4 font-[Montserrat-Bold]">UI/UX</h4>
         <p

@@ -255,7 +255,7 @@ const projects = [
   {
     id: 4,
     title: "FilmRitz – Netflix-Inspired Movie Explorer",
-    url: new URL("@/assets/FilmRitz.png", import.meta.url).href,
+    url: new URL("@/assets/FilmritzImage.png", import.meta.url).href,
     description:
       "FilmRitz is a modern, Netflix-inspired movie discovery platform built with Vue.js and TailwindCSS. It integrates The Movie Database (TMDB) API to fetch real-time trending films, offering users a sleek interface to explore, search, and preview movies. Key features include a responsive Netflix-style carousel using Swiper.js, smooth animations, and dynamic UI elements that replicate the look and feel of a streaming service.",
     link: "https://filmritz.vercel.app/ng/",
@@ -268,6 +268,14 @@ const projects = [
     description:
       "A mobile screen page that tells users a little benefit from using their food delivery app",
     link: "https://www.figma.com/design/O8mZRk9aXGkeU3tKCBNb0V/ASS1?node-id=0-1&t=CZoc8hg4kIKm6ZbH-1",
+  },
+  {
+    id: 6,
+    title: "EmannCode Image Galley(React)",
+    url: new URL("@/assets/Galley.png", import.meta.url).href,
+    description:
+      "Browse through for stunning, appealing images made by IfeOluwa Olajubaje(EmannCode)",
+    link: "https://github.com/Emann-Code-01/image-gallery-react.git",
   },
 ];
 
