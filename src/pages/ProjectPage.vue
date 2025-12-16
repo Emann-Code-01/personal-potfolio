@@ -108,8 +108,28 @@
                 <p class="text-sm text-gray-400 tracking-[0.42px] mt-1">
                   {{ projects[activeIndex]?.description }}
                 </p>
+                <p
+                  v-if="projects[activeIndex]?.language"
+                  class="text-gray-400 tracking-wide mt-1"
+                >
+                  <span class="font-[Montserrat-SemiBold]">Languages</span>:
+                  {{ projects[activeIndex]?.language }}
+                </p>
+                <p
+                  v-if="projects[activeIndex]?.API"
+                  class="text-gray-400 tracking-wide mt-1"
+                >
+                  <span class="font-[Montserrat-SemiBold]">API</span>:
+                  {{ projects[activeIndex]?.API }}
+                </p>
+                <p
+                  v-if="projects[activeIndex]?.designTool"
+                  class="text-gray-400 tracking-wide mt-1"
+                >
+                  <span class="font-[Montserrat-SemiBold]">Design Tool</span>:
+                  {{ projects[activeIndex]?.designTool }}
+                </p>
               </div>
-              <!-- Loader -->
               <div
                 v-if="isLoading && !isGithubLink"
                 class="flex flex-col items-center justify-center py-12 text-center"
@@ -146,7 +166,7 @@
                   :href="projects[activeIndex]?.link || ''"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="relative inline-flex items-center gap-1 group px-4 py-2 text-sm font-medium text-white transition-colors duration-200 bg-red-600 rounded-lg hover:bg-red-700"
+                  class="relative inline-flex items-center gap-1 group px-4 py-2 text-sm font-medium text-white transition-all duration-400 bg-red-600 rounded-lg hover:bg-red-700"
                 >
                   <svg
                     class="overflow-hidden animate-pulse max-w-0 opacity-0 transition-all duration-300 group-hover:max-w-xs group-hover:opacity-100 w-4 h-4"
@@ -234,6 +254,7 @@ const projects = [
     description:
       "Navigation bar with light and dark mode support, allowing users to switch themes seamlessly for a better browsing experience.",
     link: "https://github.com/Emann-Code-01/nav-bar-design.git",
+    language: "HTML, CSS, VanillaJS.",
   },
   {
     id: 2,
@@ -243,6 +264,7 @@ const projects = [
       "This is my personal portfolio website where I showcase my journey as a frontend developer. It highlights my featured projects, including interactive UI components like a responsive navbar with light and dark mode, and an advanced image gallery with filters and dual viewing modes. The site is fully responsive, designed to work across devices, and serves as both a professional showcase of my skills and a personal space to share my growth in web development.",
     link: "https://emanncode.vercel.app",
     githubLink: "https://github.com/Emann-Code-01/personal-potfolio.git",
+    language: "VueJS, TailwindCSS.",
   },
   {
     id: 3,
@@ -251,6 +273,7 @@ const projects = [
     description:
       "An advanced image gallery with search, filters, and dual viewing modes (grid and slideshow) for a smooth and interactive browsing experience.",
     link: "https://github.com/Emann-Code-01/Image-Gallery.git",
+    language: "HTML, CSS, VanillaJS.",
   },
   {
     id: 4,
@@ -260,6 +283,8 @@ const projects = [
       "FilmRitz is a modern, Netflix-inspired movie discovery platform built with Vue.js and TailwindCSS. It integrates The Movie Database (TMDB) API to fetch real-time trending films, offering users a sleek interface to explore, search, and preview movies. Key features include a responsive Netflix-style carousel using Swiper.js, smooth animations, and dynamic UI elements that replicate the look and feel of a streaming service.",
     link: "https://filmritz.vercel.app/ng/",
     githubLink: "https://github.com/Emann-Code-01/movie-explorer.git",
+    language: "VueJs, TailwindCSS, Typescript.",
+    API: "TMDB API",
   },
   {
     id: 5,
@@ -268,6 +293,7 @@ const projects = [
     description:
       "A mobile screen page that tells users a little benefit from using their food delivery app",
     link: "https://www.figma.com/design/O8mZRk9aXGkeU3tKCBNb0V/ASS1?node-id=0-1&t=CZoc8hg4kIKm6ZbH-1",
+    designTool: "Figma",
   },
   {
     id: 6,
@@ -276,6 +302,7 @@ const projects = [
     description:
       "Browse through for stunning, appealing images made by IfeOluwa Olajubaje(EmannCode)",
     link: "https://github.com/Emann-Code-01/image-gallery-react.git",
+    language: "ReactJS, TailwindCSS, Typescript",
   },
 ];
 
