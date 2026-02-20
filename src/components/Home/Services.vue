@@ -63,6 +63,25 @@
               Vue.js
             </p>
           </div>
+          <div class="flex gap-[6px] items-center">
+            <div>
+              <img
+                src="../../assets/react.png"
+                alt="react.js logo"
+                loading="lazy"
+                width="32"
+                height="32"
+                decoding="async"
+                data-nimg="1"
+                style="color: transparent"
+              />
+            </div>
+            <p
+              class="text-white text-opacity-70 text-sm font-[Montserrat-SemiBold]"
+            >
+              ReactJs
+            </p>
+          </div>
         </div>
       </div>
       <div
